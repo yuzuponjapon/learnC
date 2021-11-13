@@ -12,7 +12,6 @@ int main(void)
 		case 1 : puts("A");	puts("B");	break;
 		case 2 : puts("C");
 		case 5 : puts("D");	break;
-		case 4 : puts("Z"):	break;
 		case 6 :
 		case 7 : puts("E");	break;
 		default : puts("F");	break;
