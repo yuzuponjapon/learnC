@@ -7,7 +7,7 @@ int main(void)
 
 	do {
 		int t;
-		printf("整数を入力してください。＞");
+		printf("整数を入力してください＞");
 		scanf("%d",&t);
 
 		sum = sum + t;
