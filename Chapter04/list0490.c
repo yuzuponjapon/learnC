@@ -27,13 +27,16 @@ int main(void)
 	c = x;
 	d = x;
 
-	printf(" x-- | --x | x++ | ++x\n");
+	printf(" -------------------------\n");
+	printf(" | x-- | --x | x++ | ++x |\n");
 
 	while ( y-- >= 0 )	{
 
-		printf(" %3d | %3d | %3d | %3d\n",a--,--b,c++,++d );
+		printf("| %3d | %3d | %3d | %3d |\n",a--,--b,c++,++d );
 	}
 
+	printf(" -------------------------\n");
+	putchar('\n');
 
 
 /***  for 文 ***  break, cotinue 文  */
