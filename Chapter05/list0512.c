@@ -8,6 +8,7 @@ int main(void)
 	int bunpu[11] = {0};
 	int num;
 	int i,j;
+	int max;
 /*** 人数入力 ***/
 
 	printf("人数を入力してください。＞");
@@ -49,6 +50,27 @@ int main(void)
 			putchar('*');
 		putchar('\n');
 	}
+/*** グラフ横表示 ***/
+	putchar('\n');
+	printf("--- 分布グラフ（横）---\n");
 
+	max = 0;
+	for(j = 0;j <= num;j++) {
+		if(bunpu[j] > max) max = bunpu[j];
+	}
+	for(j = max;j>0;j--) {
+		for(i = 0;i <= 10;i++) {
+			if(bunpu[i] >= j)
+				printf(" * ");
+			else
+				printf("   ");
+		}
+		putchar('\n');
+	}
+
+	printf("---------------------------------\n");
+	printf(" 0 10 20 30 40 50 60 70 80 90 100\n");
+
+		
 	return(0);
 }
