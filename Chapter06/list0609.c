@@ -33,5 +33,6 @@ int main(void)
 {
 /*	int nx = input_num(); */
 	printf("反転した値は%dです。\n",rev_int(input_num()));
+
 	return 0;
 }
