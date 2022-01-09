@@ -19,10 +19,11 @@ int rev_int(int num)
 {
 	int tmp = 0;
 	
+/* 	printf("%dを",num); */
 	while (num > 0)
 	{
-		tmp = num % 10;
 		tmp *= 10;
+		tmp += num % 10;
 		num /= 10;
 	}
 	return tmp;
