@@ -1,6 +1,10 @@
 # 関数
 
-仮引数を受け取らない
-	int hatpoke(void)  
-	(void)
+## list0609.c  
+* 仮引数を受け取らない
+	int 関数名(void)  
+	
+## list0610.c
+* 関数原型宣言
+	
 
