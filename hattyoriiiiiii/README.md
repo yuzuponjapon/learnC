@@ -8,4 +8,4 @@ $ mkdir -p beginner/Chapter_{01..13}
 
 ## `tcpip` : TCP/IPネットワーク入門
 
-## `CyberSecurity` : はじめて学ぶバイナリ解析
+## `binary-analysis` : はじめて学ぶバイナリ解析
