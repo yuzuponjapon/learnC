@@ -9,10 +9,13 @@ double k_atol(const char *str)
 	int i = 0;
 
 
-	while( '0' <= str[i] && str[i] <= '9') {     /*** 整数桁カウント ***/
+/*改	while( '0' <= str[i] && str[i] <= '9') {  */   /*** 整数桁カウント ***/
+	while('0' <= *str && *str <= '9') {
 		ue_keta++;
-		i++;
+/*改	i++;  */
+		str++;
 	}
+	printf("keta = %d\n",ue_keta);
 
 
 
