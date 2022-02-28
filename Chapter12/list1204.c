@@ -18,6 +18,8 @@ int main (void)
 {
 	struct hat a = {"hattori",168,55.3};
 
+	printf("%s:%d:%.1f\n",a.name,a.height,a.weight);
+
 	kakikae( &a); 
 
 	printf("%s:%d:%.1f\n",a.name,a.height,a.weight);
