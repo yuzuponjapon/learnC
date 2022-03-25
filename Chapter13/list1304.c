@@ -30,7 +30,7 @@ void kakikomi(void)
 			t->tm_hour,
 			t->tm_min,
 			t->tm_sec );
-		close(fp);
+		fclose(fp);
 	}
 }
 
