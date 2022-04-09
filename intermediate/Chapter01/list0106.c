@@ -1,24 +1,28 @@
+#include <time.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(void)
 {
 
 	int no;
-	int ans = 7;
+	int ans;
 
-	printf("０～９の整数を当ててください。\n");
+	srand( time(NULL));
+	ans = rand() % 1000;
 
-	while(1) {
-		printf("いくつかな：");
+	printf("０から９９９\n");
+
+	do {
+		printf("no >");
 		scanf("%d",&no);
-	
+
 		if( no > ans)
 			printf("もっと小さい\n");
 		else if( no < ans)
 			printf("もっと大きい\n");
-		else
-			break;
-	}
+	} while( no != ans);
+
 	printf("正解です\n");
 
 	return 0;
