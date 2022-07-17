@@ -62,7 +62,7 @@ int main(void)
 		}
 		fflush(stdout);
 		sleep(500);
-		putchar('\r');
+		printf("\r%*s\r", level * 3, "");
 	
 	/* レベル回解答入力 */
 		for(i = 0; i < level; i++) {
