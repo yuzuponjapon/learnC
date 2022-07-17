@@ -60,7 +60,9 @@ int main(void)
 		for(i = 0; i < level; i++) {
 			printf("%d ", no[i]);
 		}
-		putchar('\n');
+		fflush(stdout);
+		sleep(500);
+		putchar('\r');
 	
 	/* レベル回解答入力 */
 		for(i = 0; i < level; i++) {
@@ -94,7 +96,7 @@ int main(void)
 	printf("\n%d問中%d問正解しました。\n", stage * level, success);
 /* ステージ別結果表示 */
 	for( i = 0; i < STAGE_MAX; i++) {
-		printf("第%dステージ：%d\n", i, score[i]);
+		printf("第%dステージ：%d\n", i + 1, score[i]);
 	}
 
 /* 所要時間表示 */
