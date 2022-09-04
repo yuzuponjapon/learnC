@@ -123,10 +123,12 @@ int main(void)
 	make_ans(comp_ans);
 
 int i;
+/*
 for(i=0;i<4;i++) {
 	printf("%d",comp_ans[i]);
 }
 putchar('\n');
+*/
 
 	do {
 		/* 入力、値確認 */

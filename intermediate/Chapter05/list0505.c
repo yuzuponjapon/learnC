@@ -4,7 +4,7 @@
 
 #define LEVEL_MIN 2
 #define LEVEL_MAX 6
-#define STAGE_MAX 3 
+#define STAGE_MAX 10 
 
 
 int sleep( unsigned long x)
@@ -23,7 +23,7 @@ int main(void)
 {
 	int level;
 	int stage;
-	int i;
+	int i, j;
 	int success = 0;
 	int score[STAGE_MAX];
 	int total = 0;
@@ -60,8 +60,9 @@ int main(void)
 		for(i = 0; i < level; i++) {
 			printf("%d ", no[i]);
 		}
+putchar('\n');
 		fflush(stdout);
-		sleep(500);
+		sleep(1500);
 		printf("\r%*s\r", level * 3, "");
 	
 	/* レベル回解答入力 */
@@ -94,11 +95,45 @@ int main(void)
 
 /* 全体結果発表 */
 	printf("\n%d問中%d問正解しました。\n", stage * level, success);
-/* ステージ別結果表示 */
-	for( i = 0; i < STAGE_MAX; i++) {
+
+
+/* ステージ別結果表示 *****************************/
+/*	for( i = 0; i < STAGE_MAX; i++) {
 		printf("第%dステージ：%d\n", i + 1, score[i]);
 	}
+*/
+/* ステージ別結果表示Ⅱ 横軸表示 ******************
+	printf("\n◆◇ 成績 ◇◆\n");
+	printf("---------------------------\n");
+	for( i = 0; i < STAGE_MAX; i++) {
+		printf("第%2dステージ：", i + 1);
+		int j;
+		for(j = 0; j < score[i]; j++) {
+			printf("★");
+		}
+		putchar('\n');
+	}
+	printf("---------------------------\n");	
+*/
+/* ステージ別結果表示Ⅲ 縦軸表示 *****************/
+	printf("\n◆◇ 成績 ◇◆\n");
+	for(i = level; i >= 1 ; i--) {
+		for (j = 0; j < STAGE_MAX; j++) {
+			if( score[j] >= i)
+				printf(" ★");
+			else
+				printf("   ");
+		}
+		putchar('\n');
+	}
+	for(i = 0; i < STAGE_MAX; i++)
+		printf("---");
+	printf("--\n");
+	for(i = 0; i < STAGE_MAX; i++)
+		printf(" %02d", i + 1);
+	putchar('\n');
 
+ 
 /* 所要時間表示 */
 	printf("%.1f秒でした。\n", (double)(end - start) / CLOCKS_PER_SEC);
  
