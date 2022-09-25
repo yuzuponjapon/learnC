@@ -1,36 +1,37 @@
 #include <stdio.h>
 
 
-
-int cardinal_conv( unsigned fno, int fcn, char frno[])
+int cardinal_conv( int fno, int fcd, char frno[])
 {
-	int fdigits = 0;
-	char tbl[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	
-	if(fno == 0)
-		frno[fdigits++] = tbl[0];
-	while(fno) {
-		frno[fdigits++] = tbl[fno % fcn];
-		fno /= fcn;
-	}
-	int i;
-	for(i = 0; i < fdigits / 2; i++) {
-		char tmp = frno[i];
-		frno[i] = frno[fdigits -i -1];
-		frno[fdigits -i -1] = tmp;
+	int fdigit = 0;
+	char table[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+	if( fno == 0)
+		frno[fdigit++] = table[0];
+	else {
+		int i;
+		while( fno ) {
+			frno[fdigit++] = table[fno % fcd];
+			fno /= fcd;
+		}
+		
+		for(i = 0; i < fdigit / 2; i++) {
+			char tmp = frno[i];
+			frno[i] = frno[fdigit -i -1];
+			frno[fdigit -i -1] = tmp;
+		}
 	}
 
-	return fdigits;
+	return fdigit;
 }
 
 
 int main(void)
 {
-
-	unsigned no;	/* 変換前 */	
-	int cn;			/* カーディナルNO */
-	char rno[512];	/* 変換後 */
-	int digits;
+	int cd;
+	int no;
+	char rno[256];
+	int digit;
 	int retry;
 
 	do {
@@ -38,22 +39,22 @@ int main(void)
 		scanf("%d", &no);
 
 		do {
-			printf("基数(2～36) >");
-			scanf("%d", &cn);
-		} while( cn < 2 || 36 < cn);
+			printf("基数 >");
+			scanf("%d", &cd);
+		} while( cd < 2 || 36 < cd );
 
-		digits = cardinal_conv( no, cn, rno);
+		digit = cardinal_conv( no, cd, rno);	
 
-		printf("%dの%d進数は\n", no, cn);
+		printf("%dの%d進数は\n", no, cd);
 		int i;
-		for(i = 0; i < digits; i++) {
+		for(i = 0; i < digit; i++) {
 			printf("%c", rno[i]);
 		}
 		printf("です。\n");
-
-		printf("retry? yes 1 no 0 >");
+	
+		printf("retry? Yes 1 No 0 >");
 		scanf("%d", &retry);
 	} while( retry == 1);
 
 	return 0;
-} 	
+}
